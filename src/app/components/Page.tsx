@@ -1,10 +1,9 @@
 import styles from "../page.module.css";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h3>Color #2</h3>
       </main>
     </div>
   );
