@@ -1,12 +1,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Variáveis para o background animado */
+  --accent-h: 210;
+  --accent: hsl(var(--accent-h) 80% 60%);
+  --mx: 0.5;
+  --my: 0.5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
+    /* Variáveis para o background animado no modo escuro */
+    --accent-h: 210;
+    --accent: hsl(var(--accent-h) 80% 60%);
+    --mx: 0.5;
+    --my: 0.5;
   }
 }
 
@@ -22,6 +34,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 * {
@@ -38,5 +51,29 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+/* Background animado com parallax e mudança de cor */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 600px at calc(100%*var(--mx)) calc(100%*var(--my)), hsl(var(--accent-h) 80% 14% / 0.9), transparent 60%),
+    radial-gradient(800px 400px at 20% 10%, hsl(330 80% 10% / 0.6), transparent 60%),
+    radial-gradient(600px 600px at 85% 80%, hsl(200 90% 8% / 0.6), transparent 55%),
+    linear-gradient(180deg, hsl(240 10% 8%), hsl(240 10% 4%));
+  filter: saturate(1.1);
+  animation: floatBG 24s ease-in-out infinite;
+}
+
+@keyframes floatBG {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
   }
 }
