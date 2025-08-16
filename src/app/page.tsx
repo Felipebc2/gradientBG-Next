@@ -1,12 +1,13 @@
 import Hero from "./components/hero";
-import NPage from "./components/nPage";
+import Page from "./components/Page";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
       <main className={styles.main}>
         <Hero />
-        <NPage />
+        <Page />
+        <Page />
       </main>
   );
 }

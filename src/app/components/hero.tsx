@@ -7,7 +7,6 @@ export default function Home() {
             <h1>Gradient BG</h1>
         </header>
       <main className={styles.main}>
-        <h3>Color #1</h3>
       </main>
     </div>
   );
